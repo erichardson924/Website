@@ -1,5 +1,5 @@
 /**
- * Project page at /work/lumen, /work/oak-line, /work/sunday-press, etc.
+ * Project page at /work/vela, /work/orchard, /work/drift, /work/sable.
  * Next.js builds one page per item in the projects list.
  */
 

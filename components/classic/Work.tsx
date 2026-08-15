@@ -1,5 +1,5 @@
 /**
- * Selected work on the classic homepage — same projects, smaller images,
+ * Selected work on the classic homepage — desktop and phone mockups,
  * no animation. Each card still opens the project page.
  */
 
@@ -18,18 +18,29 @@ export function ClassicWork() {
           {work.heading}
         </h2>
 
-        <ul className="mt-12 space-y-12">
+        <ul className="mt-12 space-y-16">
           {projects.map((project) => (
             <li key={project.slug}>
               <Link href={`/work/${project.slug}`} className="group block">
-                <div className="relative aspect-[16/10] overflow-hidden bg-sand">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    sizes="(min-width: 768px) 48rem, 100vw"
-                    className="object-cover"
-                  />
+                <div className="grid grid-cols-12 items-end gap-3">
+                  <div className="relative col-span-8 aspect-[16/10] overflow-hidden bg-ink">
+                    <Image
+                      src={project.cover.src}
+                      alt={project.cover.alt}
+                      fill
+                      sizes="(min-width: 768px) 32rem, 70vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative col-span-4 aspect-[3/4] overflow-hidden bg-ink">
+                    <Image
+                      src={project.phone.src}
+                      alt={project.phone.alt}
+                      fill
+                      sizes="(min-width: 768px) 12rem, 30vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
                 <div className="mt-4 flex items-baseline justify-between gap-4">
                   <h3 className="font-display text-2xl">

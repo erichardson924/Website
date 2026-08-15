@@ -1,6 +1,6 @@
 # Elizabeth Richardson — Portfolio
 
-A personal site with two ways to arrive: an immersive, scroll-driven homepage and a simpler classic layout that shares the same words. Sample work (a website, an identity, and print) is clickable on both.
+A personal site with two ways to arrive: an immersive, scroll-driven homepage and a simpler classic layout that shares the same words. Sample work is four digital websites (desktop + phone mockups), each with its own brand.
 
 ## How to look at it on your computer
 
@@ -12,7 +12,7 @@ npm run dev
 - Immersive: [http://localhost:3000](http://localhost:3000) — scroll slowly; one line of text at a time
 - Classic: [http://localhost:3000/classic](http://localhost:3000/classic)
 - Contact: [http://localhost:3000/contact](http://localhost:3000/contact)
-- A project: [http://localhost:3000/work/lumen](http://localhost:3000/work/lumen)
+- A project: [http://localhost:3000/work/vela](http://localhost:3000/work/vela)
 
 If a preview is already running, stop it with Control + C, then run `git pull`, `npm install`, and `npm run dev` again.
 

@@ -1,8 +1,8 @@
 /**
  * Selected work on the immersive homepage.
  *
- * Each row is a large image with a short caption. The whole row is a link
- * to a simple project page where you can look more closely.
+ * Each project shows a desktop mockup and a phone mockup so you can see
+ * the site on both screens before opening the case study.
  */
 
 "use client";
@@ -27,24 +27,35 @@ export function ImmersiveWork() {
           {work.heading}
         </h2>
 
-        <ul className="mt-16 space-y-20 sm:space-y-28">
+        <ul className="mt-16 space-y-24 sm:space-y-32">
           {projects.map((project) => (
             <li key={project.slug}>
               <motion.div
                 initial={reduceMotion ? false : { opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8, ease }}
               >
                 <Link href={`/work/${project.slug}`} className="group block">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-sand sm:aspect-[16/8]">
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt}
-                      fill
-                      sizes="100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
+                  <div className="grid items-end gap-4 md:grid-cols-12 md:gap-6">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-ink md:col-span-8">
+                      <Image
+                        src={project.cover.src}
+                        alt={project.cover.alt}
+                        fill
+                        sizes="(min-width: 768px) 60vw, 100vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="relative mx-auto aspect-[3/4] w-full max-w-[240px] overflow-hidden bg-ink md:col-span-4 md:max-w-none">
+                      <Image
+                        src={project.phone.src}
+                        alt={project.phone.alt}
+                        fill
+                        sizes="(min-width: 768px) 25vw, 240px"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </div>
                   </div>
                   <div className="mt-5 flex flex-wrap items-baseline justify-between gap-3 text-sm">
                     <p className="font-display text-2xl tracking-tight sm:text-3xl">
@@ -55,11 +66,15 @@ export function ImmersiveWork() {
                     </p>
                     <p className="uppercase tracking-[0.18em] text-olive">
                       {project.category}
+                      <span className="ml-3 hidden sm:inline">{project.year}</span>
                       <span className="ml-3 inline-block transition-transform group-hover:translate-x-1">
                         →
                       </span>
                     </p>
                   </div>
+                  <p className="mt-2 max-w-2xl text-base text-ink/65">
+                    {project.summary}
+                  </p>
                 </Link>
               </motion.div>
             </li>
