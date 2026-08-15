@@ -11,6 +11,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { experienceToggle, site } from "@/lib/content";
 
@@ -23,6 +24,7 @@ type SiteNavProps = {
 };
 
 export function SiteNav({ experience, overPhoto, homeHref }: SiteNavProps) {
+  const pathname = usePathname();
   const [overHero, setOverHero] = useState(experience === "immersive");
 
   useEffect(() => {
@@ -64,17 +66,28 @@ export function SiteNav({ experience, overPhoto, homeHref }: SiteNavProps) {
           {site.name}
         </Link>
 
-        <Link
-          href={toggleHref}
-          className={`group inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] transition-opacity hover:opacity-70 ${
-            onPhoto ? "text-cream" : "text-olive"
-          }`}
-        >
-          <span>{toggleLabel}</span>
-          <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-            →
-          </span>
-        </Link>
+        <div className="flex items-center gap-6 sm:gap-8">
+          <Link
+            href="/contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            className={`text-[11px] font-medium uppercase tracking-[0.22em] transition-opacity hover:opacity-70 ${
+              onPhoto ? "text-cream" : "text-olive"
+            } ${pathname === "/contact" ? "underline underline-offset-4" : ""}`}
+          >
+            Contact
+          </Link>
+          <Link
+            href={toggleHref}
+            className={`group inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] transition-opacity hover:opacity-70 ${
+              onPhoto ? "text-cream" : "text-olive"
+            }`}
+          >
+            <span>{toggleLabel}</span>
+            <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </Link>
+        </div>
       </nav>
     </header>
   );

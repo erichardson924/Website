@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { ClassicHero } from "@/components/classic/Hero";
 import { ClassicIntro } from "@/components/classic/Intro";
 import { ClassicWork } from "@/components/classic/Work";
+import { ContactCta } from "@/components/contact/ContactCta";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 import { site } from "@/lib/content";
@@ -26,6 +27,7 @@ export default function ClassicHome() {
         <ClassicHero />
         <ClassicIntro />
         <ClassicWork />
+        <ContactCta />
       </main>
       <SiteFooter experience="classic" />
     </>

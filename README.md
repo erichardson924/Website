@@ -11,6 +11,7 @@ npm run dev
 
 - Immersive: [http://localhost:3000](http://localhost:3000) — scroll slowly; one line of text at a time
 - Classic: [http://localhost:3000/classic](http://localhost:3000/classic)
+- Contact: [http://localhost:3000/contact](http://localhost:3000/contact)
 - A project: [http://localhost:3000/work/lumen](http://localhost:3000/work/lumen)
 
 If a preview is already running, stop it with Control + C, then run `git pull`, `npm install`, and `npm run dev` again.
@@ -22,7 +23,8 @@ If a preview is already running, stop it with Control + C, then run `git pull`, 
 | `lib/content.ts` | **The words and the work list.** Change copy or add a project here. |
 | `app/page.tsx` | Immersive homepage. |
 | `app/classic/page.tsx` | Classic homepage. |
-| `app/work/[slug]/page.tsx` | One page per project (Lumen, Oak & Line, Sunday Press). |
+| `app/contact/page.tsx` | Contact page: consult request or say hi. |
+| `components/contact/ContactForm.tsx` | The form. Sends to `erichardson924@gmail.com` via the visitor’s email app. |
 | `components/immersive/Hero.tsx` | Pinned film: photos change, name then one line at a time. |
 | `components/immersive/Intro.tsx` | Short approach section, then a full-bleed image. |
 | `components/immersive/Work.tsx` | Large, clickable work images. |

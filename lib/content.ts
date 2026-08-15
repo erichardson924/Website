@@ -11,7 +11,7 @@ export const site = {
   lastName: "Richardson",
   role: "Brand & Web Designer",
   location: "Austin, TX",
-  email: "hello@elizrichardson.co",
+  email: "erichardson924@gmail.com",
   tagline: "Websites, identity, and print.",
   heroLine: "Simple, considered design.",
 };
@@ -134,4 +134,28 @@ export const work = {
 export const experienceToggle = {
   toClassic: "Classic Experience",
   toImmersive: "Immersive Experience",
+};
+
+export const contact = {
+  heading: "Contact",
+  lede: "Request a consult, or send a short note. I read everything.",
+  consultHelp:
+    "A few questions so I can show up prepared. I’ll reply with times for a call.",
+  helloHelp: "No agenda needed.",
+  services: [
+    { id: "web", label: "Website" },
+    { id: "identity", label: "Brand identity" },
+    { id: "print", label: "Print / flyers" },
+    { id: "unsure", label: "Not sure yet" },
+  ],
+  stages: [
+    { value: "new", label: "Starting from scratch" },
+    { value: "refresh", label: "Refreshing existing work" },
+    { value: "exploring", label: "Exploring / not sure" },
+  ],
+  timelines: [
+    { value: "soon", label: "This month" },
+    { value: "later", label: "In 1–2 months" },
+    { value: "research", label: "Just looking for now" },
+  ],
 };

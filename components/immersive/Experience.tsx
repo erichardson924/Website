@@ -12,6 +12,7 @@ import { ImmersiveHero } from "@/components/immersive/Hero";
 import { ImmersiveIntro } from "@/components/immersive/Intro";
 import { ImmersiveWork } from "@/components/immersive/Work";
 import { SmoothScroll } from "@/components/immersive/SmoothScroll";
+import { ContactCta } from "@/components/contact/ContactCta";
 
 export function ImmersiveExperience() {
   const [overPhoto, setOverPhoto] = useState(true);
@@ -23,6 +24,7 @@ export function ImmersiveExperience() {
         <ImmersiveHero onOverPhotoChange={setOverPhoto} />
         <ImmersiveIntro />
         <ImmersiveWork />
+        <ContactCta />
       </main>
       <SiteFooter experience="immersive" />
     </SmoothScroll>
