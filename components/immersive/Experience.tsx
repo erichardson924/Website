@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 import { ImmersiveHero } from "@/components/immersive/Hero";
 import { ImmersiveIntro } from "@/components/immersive/Intro";
+import { ImmersiveWork } from "@/components/immersive/Work";
 import { SmoothScroll } from "@/components/immersive/SmoothScroll";
 
 export function ImmersiveExperience() {
@@ -21,6 +22,7 @@ export function ImmersiveExperience() {
       <main>
         <ImmersiveHero onOverPhotoChange={setOverPhoto} />
         <ImmersiveIntro />
+        <ImmersiveWork />
       </main>
       <SiteFooter experience="immersive" />
     </SmoothScroll>

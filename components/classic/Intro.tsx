@@ -49,7 +49,7 @@ export function ClassicIntro() {
             />
           </div>
           <figcaption className="mt-3 text-[11px] uppercase tracking-[0.22em] text-olive">
-            Designed to be felt, then understood.
+            {intro.imageCaption}
           </figcaption>
         </figure>
       </div>

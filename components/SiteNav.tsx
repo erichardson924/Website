@@ -18,9 +18,11 @@ type SiteNavProps = {
   experience: "immersive" | "classic";
   /** When the immersive photo-story is on screen, keep cream type over the image. */
   overPhoto?: boolean;
+  /** Where the name in the nav should go. Defaults to the matching homepage. */
+  homeHref?: string;
 };
 
-export function SiteNav({ experience, overPhoto }: SiteNavProps) {
+export function SiteNav({ experience, overPhoto, homeHref }: SiteNavProps) {
   const [overHero, setOverHero] = useState(experience === "immersive");
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export function SiteNav({ experience, overPhoto }: SiteNavProps) {
         aria-label="Primary"
       >
         <Link
-          href={experience === "immersive" ? "/" : "/classic"}
+          href={homeHref ?? (experience === "immersive" ? "/" : "/classic")}
           className="font-display text-lg tracking-tight sm:text-xl"
         >
           {site.name}
