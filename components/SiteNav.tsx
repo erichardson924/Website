@@ -16,13 +16,15 @@ import { experienceToggle, site } from "@/lib/content";
 
 type SiteNavProps = {
   experience: "immersive" | "classic";
+  /** When the immersive photo-story is on screen, keep cream type over the image. */
+  overPhoto?: boolean;
 };
 
-export function SiteNav({ experience }: SiteNavProps) {
+export function SiteNav({ experience, overPhoto }: SiteNavProps) {
   const [overHero, setOverHero] = useState(experience === "immersive");
 
   useEffect(() => {
-    if (experience !== "immersive") {
+    if (experience !== "immersive" || overPhoto !== undefined) {
       return;
     }
 
@@ -33,9 +35,10 @@ export function SiteNav({ experience }: SiteNavProps) {
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
-  }, [experience]);
+  }, [experience, overPhoto]);
 
-  const onPhoto = experience === "immersive" && overHero;
+  const onPhoto =
+    experience === "immersive" && (overPhoto ?? overHero);
   const toggleHref = experience === "immersive" ? "/classic" : "/";
   const toggleLabel =
     experience === "immersive"

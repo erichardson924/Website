@@ -26,6 +26,16 @@ export const intro = {
   number: "01",
   eyebrow: "Philosophy",
   heading: "Beauty is how people decide they can trust you.",
+  /**
+   * These lines appear one at a time over the hero photo as you scroll.
+   * The immersive homepage is built around this sequence.
+   */
+  scrollBeats: [
+    "Most wellness brands do not need more noise.",
+    "They need a presence as considered as the work they already do.",
+    "The first impression should feel like an exhale.",
+    "Beauty is how people decide they can trust you.",
+  ],
   paragraphs: [
     "Most wellness brands do not need more noise. They need a presence that feels as considered as the work they already do.",
     "I design websites, identities, and marketing materials for coaches and small businesses who want their first impression to feel like an exhale — warm, clear, and quietly confident.",
