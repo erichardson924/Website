@@ -1,0 +1,76 @@
+/**
+ * The navigation bar.
+ *
+ * Immersive: floats over the hero photo, then darkens once you scroll past it.
+ * Classic: stays a simple cream bar at the top.
+ *
+ * "use client" is required because the immersive bar watches how far you
+ * have scrolled — that can only happen in the browser, not on the server.
+ */
+
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { experienceToggle, site } from "@/lib/content";
+
+type SiteNavProps = {
+  experience: "immersive" | "classic";
+};
+
+export function SiteNav({ experience }: SiteNavProps) {
+  const [overHero, setOverHero] = useState(experience === "immersive");
+
+  useEffect(() => {
+    if (experience !== "immersive") {
+      return;
+    }
+
+    const update = () => {
+      setOverHero(window.scrollY < window.innerHeight - 72);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [experience]);
+
+  const onPhoto = experience === "immersive" && overHero;
+  const toggleHref = experience === "immersive" ? "/classic" : "/";
+  const toggleLabel =
+    experience === "immersive"
+      ? experienceToggle.toClassic
+      : experienceToggle.toImmersive;
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        onPhoto ? "text-cream" : "bg-cream/90 text-ink backdrop-blur-sm"
+      }`}
+    >
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8"
+        aria-label="Primary"
+      >
+        <Link
+          href={experience === "immersive" ? "/" : "/classic"}
+          className="font-display text-lg tracking-tight sm:text-xl"
+        >
+          {site.name}
+        </Link>
+
+        <Link
+          href={toggleHref}
+          className={`group inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] transition-opacity hover:opacity-70 ${
+            onPhoto ? "text-cream" : "text-olive"
+          }`}
+        >
+          <span>{toggleLabel}</span>
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+            →
+          </span>
+        </Link>
+      </nav>
+    </header>
+  );
+}
